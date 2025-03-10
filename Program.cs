@@ -102,6 +102,7 @@ app.MapDelete("/Tasks/{id}", async (ToDoDbContext db, int id) =>
     return Results.Ok();
 });
 
+// כאשר האפליקציה תרוץ, יראו את זה במקום שגיאה 404
 app.MapGet("/", ()=> "ToDoList_Server is running!");
 
 app.Run();
