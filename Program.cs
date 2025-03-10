@@ -51,15 +51,15 @@ var app = builder.Build();
 
 app.UseCors("CorsPolicy");
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "ToDo API v1");
-        c.RoutePrefix = string.Empty;
-    });
-}
+// if (app.Environment.IsDevelopment())
+// {
+//     app.UseSwagger();
+//     app.UseSwaggerUI(c =>
+//     {
+//         c.SwaggerEndpoint("/swagger/v1/swagger.json", "ToDo API v1");
+//         c.RoutePrefix = string.Empty;
+//     });
+// }
 
 // שליפת כל המשימות
 app.MapGet("/Tasks", async (ToDoDbContext db) =>
@@ -101,5 +101,7 @@ app.MapDelete("/Tasks/{id}", async (ToDoDbContext db, int id) =>
     await db.SaveChangesAsync();
     return Results.Ok();
 });
+
+app.MapGet("/", ()=> "ToDoList_Server is running!");
 
 app.Run();
