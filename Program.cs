@@ -39,20 +39,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<ToDoDbContext>();
-    try
-    {
-        db.Database.CanConnect();
-        Console.WriteLine("✅ Database connected successfully!");
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"❌ Database connection failed: {ex.Message}");
-    }
-}
-
 app.UseCors("CorsPolicy");
 
 // if (app.Environment.IsDevelopment())
