@@ -13,8 +13,9 @@ builder.Services.AddDbContext<ToDoDbContext>(options =>
 
 builder.Services.AddControllers();
 
-// הוספת Swagger
 builder.Services.AddEndpointsApiExplorer();
+
+// הוספת Swagger
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
