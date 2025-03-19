@@ -53,6 +53,8 @@ app.UseCors("CorsPolicy");
     });
 // }
 
+Console.WriteLine("connectionString: "+connectionString);
+
 // שליפת כל המשימות
 app.MapGet("/Tasks", async (ToDoDbContext db) =>
 {
