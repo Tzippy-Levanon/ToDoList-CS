@@ -9,8 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 //servicees- הוספת הקשר לבסיס הנתונים בהזרקה ל
 var connectionString = builder.Configuration.GetConnectionString("ToDoDB");
 builder.Services.AddDbContext<ToDoDbContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
-    // options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 22))));
+    // options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+    options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 22))));
 
 builder.Services.AddControllers();
 
